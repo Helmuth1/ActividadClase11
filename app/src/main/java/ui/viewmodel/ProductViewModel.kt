@@ -7,6 +7,7 @@ import data.model.ProductRequest
 import data.repository.ProductRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ui.state.ProductUiState
 

@@ -1,20 +1,26 @@
-Prompts usados
+Prompts usados:
 
-1-“Me puedes ayudar con una app Android (Kotlin, Compose) que consuma un API REST en http://10.0.2.2:8080/
- con endpoints de productos (GET/POST/PUT/DELETE y búsqueda por nombre) usando MVVM + Repository + Retrofit?”
+1-"Me puedes ayudar con una app Android (Kotlin, Compose) que consuma un API REST en http://10.0.2.2:8080/
+ con endpoints de productos (GET/POST/PUT/DELETE y búsqueda por nombre) usando MVVM + Repository + Retrofit?"
 
-2-“Genérame el data class Product con propiedades id, name, price, category, createdAt y un ProductRequest.”
+2-"Genérame el data class Product con propiedades id, name, price, category, createdAt y un ProductRequest."
 
-3-“Define una interfaz ProductApi con Retrofit para estos endpoints exactos (lista, get por id, create, update, delete, search con productName).”
+3-"Define una interfaz ProductApi con Retrofit para estos endpoints exactos (lista, get por id, create, update, delete, search con productName)."
 
-4-“Crea un RetrofitInstance con base URL http://10.0.2.2:8080/
- usando GsonConverterFactory y OkHttp logging nivel BODY.”
+4-"Crea un RetrofitInstance con base URL http://10.0.2.2:8080/
+ usando GsonConverterFactory y OkHttp logging nivel BODY."
 
-5-“Crea una clase ProductRepository que use RetrofitInstance.api y exponga funciones listAll, get, create, update, delete, search.”
+5-"Crea una clase ProductRepository que use RetrofitInstance.api y exponga funciones listAll, get, create, update, delete, search."
 
-6-“Crea un ProductViewModel con ProductUiState(loading, items, message) usando MutableStateFlow/StateFlow.”
+6-"Crea un ProductViewModel con ProductUiState(loading, items, message) usando MutableStateFlow/StateFlow."
 
-Explicación MVVM 
+7-"Propón casos de prueba manuales para verificar cada endpoint desde la app (crear, listar, actualizar, eliminar, buscar). Incluye qué debo ver en Logcat o UI al fallar la red."
+
+8-"Tengo error CLEARTEXT communication not permitted al llamar http://10.0.2.2:8080/. Dame pasos para solucionarlo en Android 9+ y cómo confirmar que el fix funcionó."
+
+9-"Sugiere 3 mejoras pequeñas: validación de precio, feedback de errores con Snackbar/Dialog, y formateo de moneda. Dame snippets puntuales."
+
+Explicación MVVM: 
 
 MVVM (Model-View-ViewModel):
 Se usó para separar la lógica de UI del acceso a datos.
@@ -35,7 +41,7 @@ ProductRepository abstrae Retrofit para que el ViewModel no conozca detalles de 
 StateFlow + Compose:
 Permite que la UI reaccione automáticamente a los cambios en los datos (ProductUiState → collectAsStateWithLifecycle).
 
-Errores encontrados
+Errores encontrados:
 
 Error: “NetworkOnMainThreadException”
 Solución: aseguré que todas las llamadas HTTP se ejecutaran dentro de viewModelScope.launch, que usa un hilo de background (corrutinas).
